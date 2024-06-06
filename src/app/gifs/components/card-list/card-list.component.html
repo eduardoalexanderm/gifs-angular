@@ -1,0 +1,14 @@
+<div class="row">
+  <div *ngFor="let gif of gifs" class="col-md-3 col-sm-6 col-12">
+    <div class="text-center card mb-2 bg-dark">
+      <img
+        [src]="gif.images.downsized_medium.url"
+        class="img-fluid"
+        alt="Responsive image"
+      />
+      <div class="card-body">
+        <h6 class="card-title text-white">{{ gif.title }}</h6>
+      </div>
+    </div>
+  </div>
+</div>
