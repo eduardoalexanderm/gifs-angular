@@ -1,0 +1,19 @@
+<div class="row" *ngIf="favoriteProducts.length != 0">
+    <div class="col-md-4" *ngFor="let product of favoriteProducts">
+      <div class="card mb-4">
+        <img src="{{product.image}}" class="card-img-top" alt="{{product.title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name}}</h5>
+          <p class="card-text">${{product.price}}</p>
+          <button class="btn btn-secondary" (click)="removeFavorite(product)">
+            Eliminar Favorito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="favoriteProducts.length == 0">
+    <div class="col-md-12">
+      <p class="text-center" style="font-size: 24px;">No se encontraron productos favoritos</p>
+    </div>
+  </div>

@@ -1,0 +1,20 @@
+<div class="row" *ngIf="filteredProducts.length != 0">
+    <div class="col-md-4" *ngFor="let product of filteredProducts">
+      <div class="card mb-4">
+        <img src="{{product.image}}" class="card-img-top" style="height: 400px;" alt="{{product.title}}">
+        <div class="card-body">
+          <h5 class="card-title">{{product.title}}</h5>
+          <p class="card-text">${{product.price}}</p>
+          <a routerLink="/product/{{product.id}}" class="btn btn-primary m-2">Ver Detalle</a>
+          <button class="btn btn-secondary m-2" (click)="toggleFavorite(product)">
+            {{ product.isFavorite ? 'Eliminar' : 'Agregar' }} Favorito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="filteredProducts.length == 0">
+    <div class="col-md-12">
+      <p class="text-center" style="font-size: 24px;">No se encontraron productos</p>
+    </div>
+  </div>
