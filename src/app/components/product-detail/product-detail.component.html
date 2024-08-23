@@ -3,11 +3,14 @@
     <div class="card-body">
       <h5 class="card-title">{{product?.title}}</h5>
       <p class="card-text">{{product?.description}}</p>
-      <p class="card-text">Precio: ${{product?.price}}</p>
+      <p class="card-text"><b>Precio:</b> ${{product?.price}}</p>
+      <p class="card-text"><b>Categoría:</b> {{product?.category}}</p>
+      <p class="card-text"><b>Rating:</b> {{product?.rating.rate}}</p>
+      <p class="card-text"><b>Count:</b> {{product?.rating.rate}}</p>
+
       <button class="btn btn-secondary" (click)="toggleFavorite()">
         {{ product?.isFavorite ? 'Remover favorito' : 'Marcar como' }} favorito
       </button>
-      <!-- regresar -->
       <a routerLink="/products" class="btn btn-primary m-2">Regresar</a>
     </div>
   </div>
