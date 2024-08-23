@@ -5,10 +5,10 @@
   </div>
     <div class="col-md-4" *ngFor="let product of favoriteProducts">
       <div class="card mb-4">
-        <img src="{{product.image}}" class="card-img-top" style="height: 400px;" alt="{{product.title}}">
+        <img src="{{product?.image}}" class="card-img-top" style="height: 400px;" alt="{{product.title}}">
         <div class="card-body">
-          <h5 class="card-title">{{product.name}}</h5>
-          <p class="card-text">${{product.price}}</p>
+          <h5 class="card-title">{{product?.name}}</h5>
+          <p class="card-text">${{product?.price}}</p>
           <button class="btn btn-secondary" (click)="removeFavorite(product)">
             Eliminar Favorito
           </button>

@@ -1,14 +1,19 @@
 <div class="row" *ngIf="filteredProducts.length != 0">
     <div class="col-md-4" *ngFor="let product of filteredProducts">
       <div class="card mb-4">
-        <img src="{{product.image}}" class="card-img-top" style="height: 400px;" alt="{{product.title}}">
+        <img src="{{product?.image}}" class="card-img-top" style="height: 400px;" alt="{{product?.title}}" *ngIf="product.image">
         <div class="card-body">
           <h5 class="card-title">{{product.title}}</h5>
           <p class="card-text">${{product.price}}</p>
-          <a routerLink="/product/{{product.id}}" class="btn btn-primary m-2">Ver Detalle</a>
+          <a routerLink="/product/{{product.id}}" class="btn btn-primary m-1">Ver Detalle</a>
           <button [ngClass]="{'btn-success': !product.isFavorite, 'btn-danger': product.isFavorite}" class="btn" (click)="toggleFavorite(product)">
             {{ product.isFavorite ? 'Eliminar' : 'Agregar' }} Favorito
           </button>
+          <button class="btn btn-danger m-1" (click)="deleteProduct(product.id)">
+            Eliminar  
+          </button>
+          <!-- EDITAR -->
+          <a routerLink="/edit-product/{{product.id}}" class="btn btn-warning m-1">Editar</a>
         </div>
       </div>
     </div>

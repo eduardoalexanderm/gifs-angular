@@ -24,6 +24,11 @@ export class ProductsComponent implements OnInit {
     product.isFavorite = !product.isFavorite;
     this.productService.updateFavoriteStatus(product);
   }
-
+  deleteProduct(id: string): void {
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.products = this.products.filter(product => product.id !== id);
+      this.filteredProducts = this.filteredProducts.filter(product => product.id !== id);
+    });
+  }
   // TODO: Métodos para ordenar, buscar, y filtrar productos se agregarán aquí
 }

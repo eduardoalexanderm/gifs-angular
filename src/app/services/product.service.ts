@@ -36,4 +36,10 @@ export class ProductService {
     const favorites = localStorage.getItem(this.favoritesKey) ?? '[]';
     return JSON.parse(favorites);
   }
+  updateProduct(id: string, updatedProduct: any): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${id}`, updatedProduct);
+  }
+  deleteProduct(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }
