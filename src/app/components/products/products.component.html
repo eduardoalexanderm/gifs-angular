@@ -6,7 +6,7 @@
           <h5 class="card-title">{{product.title}}</h5>
           <p class="card-text">${{product.price}}</p>
           <a routerLink="/product/{{product.id}}" class="btn btn-primary m-2">Ver Detalle</a>
-          <button class="btn btn-secondary m-2" (click)="toggleFavorite(product)">
+          <button [ngClass]="{'btn-success': !product.isFavorite, 'btn-danger': product.isFavorite}" class="btn" (click)="toggleFavorite(product)">
             {{ product.isFavorite ? 'Eliminar' : 'Agregar' }} Favorito
           </button>
         </div>
